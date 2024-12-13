@@ -119,12 +119,21 @@ void mpu6050_read_accel()
     want_p("x : %02.02fg, y : %02.02fg, z : %02.02fg", accel_data[0], accel_data[1], accel_data[2]);
 }
 
+void mpu6050_read_temp()
+{
+    short int reg_data = mpu6050_get_2bytes(MPU6050_REG_TEMP_OUT_H);
+    float temperature = 0;
+    temperature = GET_TEMPERATURE_FROM_TEMP_REG_OUT(reg_data);
+    want_p("%02.02f", temperature);
+}
+
 void thread_mpu6050()
 {
     while(1)
     {
         mpu6050_sleep_mode_off(); //if power reset(reason that use poor connect with voltage line), mpu6050 automatically in sleep mode. so, at every reading, we must set sleep bit 1.
         mpu6050_read_accel();
+        mpu6050_read_temp();
         sleep(1);
     }
 }

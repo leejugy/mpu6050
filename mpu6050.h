@@ -11,6 +11,7 @@
 
 #define MPU6050_SLAVE_ADDRESS 0x68
 #define MPU6050_PWR_SLEEP_OFF_AND_RESET_ALL 0
+#define GET_TEMPERATURE_FROM_TEMP_REG_OUT(reg_val) ((float)reg_val)/((float)340) + 36.53
 
 typedef enum
 {
@@ -38,5 +39,6 @@ typedef enum
 void init_mpu6050();
 void mpu6050_read_accel();
 void start_mpu6050_thread();
+void mpu6050_read_temp();
 
 #endif
