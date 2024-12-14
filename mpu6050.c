@@ -118,7 +118,7 @@ void mpu6050_read_accel()
 
     afs_sel = mpu6050_get_1bytes(MPU6050_REG_ACCEL_CONFIG);
     afs_sel = (afs_sel >> 3) & 0x03;
-    want_p("afs_sel val is : %d resolution[%d]", afs_sel, resolution_table[afs_sel]);
+    want_p("accel range : [±%d] resolution[%d]", (int)pow(2, afs_sel + 1), resolution_table[afs_sel]);
 
     for (i = 0; i < MAX_ACC_SIZE; i++) // read xyz acc
     {

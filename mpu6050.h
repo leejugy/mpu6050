@@ -8,6 +8,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <pthread.h>
+#include <math.h>
 
 #define MPU6050_SLAVE_ADDRESS 0x68
 #define MPU6050_PWR_SLEEP_OFF_AND_RESET_ALL 0
