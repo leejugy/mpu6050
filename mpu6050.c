@@ -34,6 +34,16 @@ static int mpu6050_single_write_reg(MPU6050_REG reg_addr, uint8_t *buffer, size_
     return i2c_reg_8bit_write(&mpu6050_i2c, reg_addr, buffer, buffer_size);
 }
 
+static int mpu6050_burst_write_reg(MPU6050_REG reg_addr, uint8_t *buffer, size_t buffer_size)
+{
+    if (buffer_size != 2)
+    {
+        err_p("invalid buffer size");
+        return -1;
+    }
+    return i2c_reg_8bit_write(&mpu6050_i2c, reg_addr, buffer, buffer_size);
+}
+
 static uint16_t u8_to_u16(uint8_t *u8)
 {
     uint16_t u16 = 0;

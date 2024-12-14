@@ -1,5 +1,6 @@
 {
     "files.associations": {
-        "i2c_ctl.h": "c"
+        "i2c_ctl.h": "c",
+        "mpu6050.h": "c"
     }
 }
