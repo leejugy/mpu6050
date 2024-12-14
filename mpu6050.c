@@ -126,7 +126,7 @@ void mpu6050_read_accel()
         accel_data[ACC_X + i] = ((float)reg_data) / ((float)resolution_table[afs_sel]);
     }
 
-    want_p("x : %02.02fg, y : %02.02fg, z : %02.02fg", accel_data[0], accel_data[1], accel_data[2]);
+    want_p("x : %02.02fg, y : %02.02fg, z : %02.02fg", accel_data[ACC_X], accel_data[ACC_Y], accel_data[ACC_Z]);
 }
 
 void mpu6050_read_temp()
